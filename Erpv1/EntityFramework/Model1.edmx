@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="erpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firma_Adi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Yetkili_Ad_Soyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Vergi_No" Type="nvarchar" MaxLength="11" />
+          <Property Name="Vergi_Dairesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ulke" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sehir" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ilce" Type="nvarchar" MaxLength="20" />
+          <Property Name="Semt" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="depolar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urunAdi" Type="nvarchar" MaxLength="550" />
+          <Property Name="DepoAdi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="DepoTanimlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepoAdi" Type="nvarchar" MaxLength="200" />
+          <Property Name="DepoDurumu" Type="binary" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="numarator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SipBaslangic" Type="nvarchar" MaxLength="5" />
+          <Property Name="SipSon" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIP_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORDER_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="RPT_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="MAL_TANIMI" Type="nvarchar" MaxLength="100" />
+          <Property Name="PAZARLAMACI" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIRMA_KODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIRMA_ADI" Type="nvarchar" MaxLength="100" />
+          <Property Name="ILGILI" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEPARTMAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="20" />
+          <Property Name="ADRES" Type="nvarchar" MaxLength="50" />
+          <Property Name="ULKE" Type="nvarchar" MaxLength="30" />
+          <Property Name="KOMISYONCU" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="500" />
+          <Property Name="DOKUMA_DETAY" Type="nvarchar" MaxLength="500" />
+          <Property Name="BOYA_DETAY" Type="nvarchar" MaxLength="500" />
+          <Property Name="BASKI_DETAY" Type="nvarchar" MaxLength="500" />
+          <Property Name="KONF_DETAY" Type="nvarchar" MaxLength="500" />
+          <Property Name="NAKIS_DETAY" Type="nvarchar" MaxLength="500" />
+          <Property Name="AKS_DETAY" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SipDag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="REF_NO" Type="int" />
+          <Property Name="SIP_REF_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="TERMIN" Type="date" />
+          <Property Name="ART_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CINSI" Type="nvarchar" MaxLength="50" />
+          <Property Name="MODEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="KALIP_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="KUMAS_KODU" Type="nvarchar" MaxLength="10" />
+          <Property Name="KUMAS_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="BORDUR_KODU" Type="nvarchar" MaxLength="20" />
+          <Property Name="BORDUR_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="EBAT_BEDEN" Type="nvarchar" MaxLength="20" />
+          <Property Name="EN" Type="nvarchar" MaxLength="20" />
+          <Property Name="NOY" Type="nvarchar" MaxLength="20" />
+          <Property Name="GM2" Type="nvarchar" MaxLength="20" />
+          <Property Name="VARYANT_KODU" Type="nvarchar" MaxLength="20" />
+          <Property Name="VARYANT_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="RENK_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="RENK_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="BASKI_KODU" Type="nvarchar" MaxLength="20" />
+          <Property Name="BASKI_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="NAKIS_KODU" Type="nvarchar" MaxLength="20" />
+          <Property Name="NAKIS_ADI" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_SipDag_Siparis">
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="0..1" />
+          <End Role="SipDag" Type="Self.SipDag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SipDag">
+              <PropertyRef Name="REF_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="erpModelStoreContainer">
+          <EntitySet Name="cari" EntityType="Self.cari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="depolar" EntityType="Self.depolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepoTanimlari" EntityType="Self.DepoTanimlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="numarator" EntityType="Self.numarator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SipDag" EntityType="Self.SipDag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="urunler" EntityType="Self.urunler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SipDag_Siparis" Association="Self.FK_SipDag_Siparis">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="SipDag" EntitySet="SipDag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="erpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="depolar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunAdi" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="DepoAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tutar" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="DepoTanimlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepoAdi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DepoDurumu" Type="Binary" MaxLength="1" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="erpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="depolar" EntityType="Self.depolar" />
+          <EntitySet Name="DepoTanimlari" EntityType="Self.DepoTanimlari" />
+          <EntitySet Name="urunler" EntityType="Self.urunler" />
+          <EntitySet Name="cari" EntityType="erpModel.cari" />
+          <EntitySet Name="numarator" EntityType="erpModel.numarator" />
+          <EntitySet Name="Siparis" EntityType="erpModel.Siparis" />
+          <EntitySet Name="SipDag" EntityType="erpModel.SipDag" />
+          <AssociationSet Name="FK_SipDag_Siparis" Association="erpModel.FK_SipDag_Siparis">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="SipDag" EntitySet="SipDag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="cari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firma_Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Yetkili_Ad_Soyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vergi_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Vergi_Dairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Ulke" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Sehir" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ilce" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Semt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="numarator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SipBaslangic" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SipSon" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIP_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RPT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="MAL_TANIMI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PAZARLAMACI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIRMA_KODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIRMA_ADI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ILGILI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ULKE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="KOMISYONCU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DOKUMA_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BOYA_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BASKI_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KONF_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NAKIS_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AKS_DETAY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SipDag" Relationship="erpModel.FK_SipDag_Siparis" FromRole="Siparis" ToRole="SipDag" />
+        </EntityType>
+        <EntityType Name="SipDag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="REF_NO" Type="Int32" />
+          <Property Name="SIP_REF_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TERMIN" Type="DateTime" Precision="0" />
+          <Property Name="ART_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CINSI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KALIP_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KUMAS_KODU" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="KUMAS_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BORDUR_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BORDUR_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EBAT_BEDEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NOY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GM2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VARYANT_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VARYANT_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BASKI_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BASKI_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NAKIS_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NAKIS_ADI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Siparis" Relationship="erpModel.FK_SipDag_Siparis" FromRole="SipDag" ToRole="Siparis" />
+        </EntityType>
+        <Association Name="FK_SipDag_Siparis">
+          <End Type="erpModel.Siparis" Role="Siparis" Multiplicity="0..1" />
+          <End Type="erpModel.SipDag" Role="SipDag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SipDag">
+              <PropertyRef Name="REF_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="erpModelStoreContainer" CdmEntityContainer="erpEntities">
+          <EntitySetMapping Name="depolar">
+            <EntityTypeMapping TypeName="erpModel.depolar">
+              <MappingFragment StoreEntitySet="depolar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="urunAdi" ColumnName="urunAdi" />
+                <ScalarProperty Name="DepoAdi" ColumnName="DepoAdi" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepoTanimlari">
+            <EntityTypeMapping TypeName="erpModel.DepoTanimlari">
+              <MappingFragment StoreEntitySet="DepoTanimlari">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DepoAdi" ColumnName="DepoAdi" />
+                <ScalarProperty Name="DepoDurumu" ColumnName="DepoDurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urunler">
+            <EntityTypeMapping TypeName="erpModel.urunler">
+              <MappingFragment StoreEntitySet="urunler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cari">
+            <EntityTypeMapping TypeName="erpModel.cari">
+              <MappingFragment StoreEntitySet="cari">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Semt" ColumnName="Semt" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Vergi_Dairesi" ColumnName="Vergi_Dairesi" />
+                <ScalarProperty Name="Vergi_No" ColumnName="Vergi_No" />
+                <ScalarProperty Name="Yetkili_Ad_Soyad" ColumnName="Yetkili_Ad_Soyad" />
+                <ScalarProperty Name="Firma_Adi" ColumnName="Firma_Adi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="numarator">
+            <EntityTypeMapping TypeName="erpModel.numarator">
+              <MappingFragment StoreEntitySet="numarator">
+                <ScalarProperty Name="SipSon" ColumnName="SipSon" />
+                <ScalarProperty Name="SipBaslangic" ColumnName="SipBaslangic" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="erpModel.Siparis">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="AKS_DETAY" ColumnName="AKS_DETAY" />
+                <ScalarProperty Name="NAKIS_DETAY" ColumnName="NAKIS_DETAY" />
+                <ScalarProperty Name="KONF_DETAY" ColumnName="KONF_DETAY" />
+                <ScalarProperty Name="BASKI_DETAY" ColumnName="BASKI_DETAY" />
+                <ScalarProperty Name="BOYA_DETAY" ColumnName="BOYA_DETAY" />
+                <ScalarProperty Name="DOKUMA_DETAY" ColumnName="DOKUMA_DETAY" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="KOMISYONCU" ColumnName="KOMISYONCU" />
+                <ScalarProperty Name="ULKE" ColumnName="ULKE" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+                <ScalarProperty Name="ILGILI" ColumnName="ILGILI" />
+                <ScalarProperty Name="FIRMA_ADI" ColumnName="FIRMA_ADI" />
+                <ScalarProperty Name="FIRMA_KODU" ColumnName="FIRMA_KODU" />
+                <ScalarProperty Name="PAZARLAMACI" ColumnName="PAZARLAMACI" />
+                <ScalarProperty Name="MAL_TANIMI" ColumnName="MAL_TANIMI" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="RPT_NO" ColumnName="RPT_NO" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="SIP_NO" ColumnName="SIP_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SipDag">
+            <EntityTypeMapping TypeName="erpModel.SipDag">
+              <MappingFragment StoreEntitySet="SipDag">
+                <ScalarProperty Name="NAKIS_ADI" ColumnName="NAKIS_ADI" />
+                <ScalarProperty Name="NAKIS_KODU" ColumnName="NAKIS_KODU" />
+                <ScalarProperty Name="BASKI_ADI" ColumnName="BASKI_ADI" />
+                <ScalarProperty Name="BASKI_KODU" ColumnName="BASKI_KODU" />
+                <ScalarProperty Name="RENK_ADI" ColumnName="RENK_ADI" />
+                <ScalarProperty Name="RENK_NO" ColumnName="RENK_NO" />
+                <ScalarProperty Name="VARYANT_ADI" ColumnName="VARYANT_ADI" />
+                <ScalarProperty Name="VARYANT_KODU" ColumnName="VARYANT_KODU" />
+                <ScalarProperty Name="GM2" ColumnName="GM2" />
+                <ScalarProperty Name="NOY" ColumnName="NOY" />
+                <ScalarProperty Name="EN" ColumnName="EN" />
+                <ScalarProperty Name="EBAT_BEDEN" ColumnName="EBAT_BEDEN" />
+                <ScalarProperty Name="BORDUR_ADI" ColumnName="BORDUR_ADI" />
+                <ScalarProperty Name="BORDUR_KODU" ColumnName="BORDUR_KODU" />
+                <ScalarProperty Name="KUMAS_ADI" ColumnName="KUMAS_ADI" />
+                <ScalarProperty Name="KUMAS_KODU" ColumnName="KUMAS_KODU" />
+                <ScalarProperty Name="KALIP_NO" ColumnName="KALIP_NO" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="CINSI" ColumnName="CINSI" />
+                <ScalarProperty Name="ART_NO" ColumnName="ART_NO" />
+                <ScalarProperty Name="TERMIN" ColumnName="TERMIN" />
+                <ScalarProperty Name="SIP_REF_NO" ColumnName="SIP_REF_NO" />
+                <ScalarProperty Name="REF_NO" ColumnName="REF_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
